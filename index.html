@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nestor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+        }
+        .en-tete {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+        header {
+            background-color: green;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            height: 70px;
+        }
+        nav a {
+            position: relative;
+            top: -50px;
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+        }
+        .description {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .chargement-font {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            color: red;
+            font-size: 2em;
+            text-transform: uppercase;
+        }
+        .chargement {
+            border: 10px solid transparent;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: ClarkNestor 5s linear infinite;
+        }
+        @keyframes ClarkNestor {
+            0% { border-top-color: blue; }
+            25% { border-top-color: transparent; border-right-color: yellow; }
+            50% { border-right-color: transparent; border-bottom-color: red; }
+            75% { border-bottom-color: transparent; border-left-color: green; }
+            100% { border-left-color: transparent; border-top-color: orange; }
+        }
+        .page {
+            display: none;
+        }
+        section {
+            position: relative;
+            top: 200px;
+            padding: 20px 20px 30px 50px;
+            margin: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .contenu {
+            margin-bottom: 20px;
+        }
+        .detail {
+            margin-top: 20px;
+        }
+        img {
+            width: 100px;
+            border-radius: 10%;
+            margin-bottom: 20px;
+        }
+        .active {
+            font-weight: bold;
+            color: red;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .imag {
+            position: relative;
+            width: 290px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 2px 2px 20px black;
+            margin-bottom: 15px;
+        }
+        .montophe {
+            position: absolute;
+            top: -115px;
+            left: -190px;
+            width: 235%;
+            height: 200%;
+        }
+        strong {
+            cursor: pointer;
+        }
+        button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="chargement-font">
+        <p>Chargement de la page...</p>
+        <div class="chargement"></div>
+    </div>
+    <div class="page">
+        <div class="en-tete">
+            <header>
+                <h1 style="text-transform: uppercase;">bienvenu</h1>
+            </header>
+            <nav>
+                <a href="#" onclick="showInfo('accueil')" id="accueil-link" class="active"><h1>Accueil</h1></a>
+                <a href="#" onclick="showInfo('nestor')" id="nestor-link">Nestor</a>
+            </nav>
+        </div>
+
+        <section>
+            <iframe src="https://drive.google.com/file/d/1EWEZ1WHHmkGEdH5M5vN5Nr_r1iX3quEZ/preview" height="500px" width="100%" frameborder="0"></iframe>
+        </section>
+        <section id="nestor" style="display: none;">
+            <div class="contenu">
+                <h2>Les informations de Nestor</h2>
+                <div class="detail">
+                    <iframe src="https://drive.google.com/file/d/1EWEZ1WHHmkGEdH5M5vN5Nr_r1iX3quEZ/preview" frameborder="0"></iframe>
+                    <br><br>    
+                    <label for="">Nom: DJINFALBE CHINDANNE</label><br>
+                    <label for="">Prénom: NESTOR</label><br>
+                    <label for="">Tél: +23568944174<br>+237695859569</label><br>
+                    <label for="">Email: nestordjinfalbechindanne@gmail.com</label>
+                    <hr>
+                </div>
+                <div class="description">
+                    <h2>Présentation du Projet</h2>
+                    <p>Notre projet consiste à concevoir une page web interactive permettant de présenter des informations détaillées sur différentes personnes...</p>
+                </div>
+                <button onclick="toggleDetail('about-me')">À propos de moi</button>
+                <div class="detail" id="about-me" style="display: none;">
+                    <h2>A PROPOS DE MOI</h2>
+                    <p>Née le 26 Fevier 1999 à Lagon, de nationalité Tchadienne habitant le département de EL-OUAYA dans la règion du grand MOYO-KEBBI OUEST.Je suis étudiant en troisième année de licence informatique à l'université de Ngaoundéré, passionné par la technologie et l'innovation, la recherche, lecture, la musique, le sport...</p>
+                </div>
+                <button onclick="toggleDetail('projects')">Projets Académiques</button>
+                <div class="detail" id="projects" style="display: none;">
+                    <h2>PROJETS ACADÉMIQUES</h2>
+                    <ul>
+                        <li><p>Titre projet: Développement d'application web</p></li>
+                    </ul>
+                </div>
+                <button onclick="toggleDetail('skills')">Compétences</button>
+                <div class="detail" id="skills" style="display: none;">
+                    <h2>COMPÉTENCES</h2>
+                    <ul>
+                        <li>Langages de programmation : HTML5, CSS3, JavaScript, Python, C, C++, PHP</li>
+                        <li>Bases de données : SQL, JAVA</li>
+                        <li>Outils Bureautiques</li>
+                        <li>Systèmes d'exploitation: Windows, Linux</li>
+                    </ul>
+                </div>
+                <button onclick="toggleDetail('education')">Formation</button>
+                <div class="detail" id="education" style="display: none;">
+                    <h2>FORMATION</h2>
+                    <ul>
+                        <li>École Primaire De Centre Officielle De Lagon: CEPT (2011)</li>
+                        <li>Collège Officielle De Lagon: BEF (Brevet Des Études Fondamentales en 2016)</li>
+                        <li>Complexe Scolaire Franco-Anglais Let's Go! De Pala (2018-2020)</li>
+                        <li>Collège-Lycée Privé Messager De Lagon: Baccalauréat Série D 2021</li>
+                        <li>Université De Ngaoundéré En Licence Informatique De 2021 À Nos Jours</li>
+                    </ul>
+                </div>
+                <button onclick="toggleDetail('certifications')">Certifications</button>
+                <div class="detail" id="certifications" style="display: none;">
+                    <h2>CERTIFICATIONS</h2>
+                    <ul>
+                        <li>Attestation De BEF</li>
+                        <li>Attestation De Baccalauréat Scientifique D</li>
+                        <li>Attestation En Entreprenariat Digital</li>
+                        <li>Certification En Outils Bureautiques Et Maintenance Informatiques</li>
+                    </ul>
+                </div>
+                <button onclick="toggleDetail('languages')">Langues</button>
+                <div class="detail" id="languages" style="display: none;">
+                    <h2>LANGUES</h2>
+                    <ul>
+                        <li>Français: Parlé et Écrit</li>
+                        <li>Anglais: Débrouille</li>
+                        <li>Moundang: Parlé et Écrit</li>
+                    </ul>
+                </div>
+              <button onclick="toggleDetail('contact')">Contact</button>
+                <div class="detail" id="contact" style="display: none;">
+                    <h2>CONTACT</h2>
+                    <ul>
+                        <li>GitHub: DJINFALBE-chindanne-Nestor</li>
+                        <li>Email: nestordjinfalbechindanne@gmail.com</li>
+                        <li>Facebook: Nestor Djinfalbé</li>
+                        <li>LinkedIn: Nestor Djinfalbe chindanné</li>
+                        <li>Twitter: Djinfalbe chindanne Nestor</li>
+                        <li>WhatsApp Et Téléphone: +237695859569</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Simulation du chargement de la page
+        setTimeout(function () {
+            document.querySelector('.chargement-font').style.display = "none";
+            document.querySelector('.page').style.display = "block";
+        }, 2000);
+
+        // Fonction pour afficher ou masquer les détails
+        function toggleDetail(detailId) {
+            var detail = document.getElementById(detailId);
+            if (detail.style.display === "none") {
+                detail.style.display = "block";
+            } else {
+                detail.style.display = "none";
+            }
+        }
+
+        // Fonction appelée lorsque l'utilisateur clique sur un lien de navigation
+        function showInfo(sectionId) {
+            var sections = document.querySelectorAll('section');
+            var links = document.querySelectorAll('nav a');
+
+            sections.forEach(function (section) {
+                section.style.display = 'none';
+            });
+
+            links.forEach(function (link) {
+                link.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).style.display = 'block';
+            document.getElementById(sectionId + '-link').classList.add('active');
+        }
+    </script>
+</body>
+</html>
